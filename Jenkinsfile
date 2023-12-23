@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_PASSWORD = credentials('Dockerhub_pass')
-        BUILD_TAG = "${BUILD_NUMBER}"
+       
         // These variables are for terraform to connect to Azure account
         ARM_SUBSCRIPTION_ID = "0c464c51-6d08-41fe-9971-8eda56d5e04a"
         ARM_CLIENT_ID ="9ebf1ce4-707a-4b8f-9a60-350fa1640ad1"
