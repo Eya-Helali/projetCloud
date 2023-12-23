@@ -5,10 +5,10 @@ pipeline {
         DOCKER_HUB_PASSWORD = credentials('Dockerhub_pass')
         BUILD_TAG = "${BUILD_NUMBER}"
         // These variables are for terraform to connect to Azure account
-        ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
-        ARM_CLIENT_ID = credentials('ARM_CLIENT_ID')
-        ARM_CLIENT_SECRET = credentials('ARM_CLIENT_SECRET') 
-        ARM_TENANT_ID = credentials('ARM_TENANT_ID')
+        ARM_SUBSCRIPTION_ID = 0c464c51-6d08-41fe-9971-8eda56d5e04a 
+        ARM_CLIENT_ID = 9ebf1ce4-707a-4b8f-9a60-350fa1640ad1
+        ARM_CLIENT_SECRET =  5iH8Q~cwzi2K6z2ZM6_Okt69HfAUqNAE4.Noldn.
+        ARM_TENANT_ID = dbd6664d-4eb9-46eb-99d8-5c43ba153c61
 
     }
 
@@ -16,8 +16,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Check out your source code from your version control system, e.g., Git.
-                sh 'rm -rf devsecops-project'
-                sh 'git clone https://github.com/khalilsellamii/devsecops-project'
+                sh 'rm -rf projetCloud'
+                sh 'git clone https://github.com/Eya-Helali/projetCloud.git'
             }
         }
                    
@@ -49,6 +49,7 @@ pipeline {
             steps {
 
                 sh '''
+                    export KUBECONFIG=/var/jenkins_home/workspace/projetCloud/terraform/kubeconfig
                     cd kubernetes
                     kubectl apply -f .
 
