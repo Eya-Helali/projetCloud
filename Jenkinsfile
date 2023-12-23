@@ -50,6 +50,7 @@ pipeline {
                 sh '''
                     export KUBECONFIG=/var/jenkins_home/workspace/projetCloud/terraform/kubeconfig
                     cd kubernetes
+                    kubectl get nodes 
                     kubectl apply -f .
 
                 '''
