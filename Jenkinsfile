@@ -48,7 +48,7 @@ pipeline {
             steps {
 
                 sh '''
-                    export KUBECONFIG=/var/jenkins_home/workspace/projetCloud/terraform/kubeconfig
+                    export KUBECONFIG=/var/jenkins_home/workspace/cloud/terraform/kubeconfig
                     cd kubernetes
                     kubectl get nodes 
                     kubectl apply -f .
@@ -63,7 +63,7 @@ pipeline {
                     try {
                         sh '''
 
-                        export KUBECONFIG=/var/jenkins_home/workspace/projet-devops/terraform/kubeconfig
+                        export KUBECONFIG=/var/jenkins_home/workspace/cloud/terraform/kubeconfig
 
                         helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
                         helm repo update
@@ -87,7 +87,7 @@ pipeline {
 
                     sh '''
 
-                        export KUBECONFIG=/var/jenkins_home/workspace/projet-devops/terraform/kubeconfig
+                        export KUBECONFIG=/var/jenkins_home/workspace/cloud/terraform/kubeconfig
                         kubectl create ns monitoring 
                         helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
                         helm repo update
